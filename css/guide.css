@@ -1,0 +1,32 @@
+/* Sticky-note guide */
+.scene{position:relative;align-content:center;gap:20px}
+.note{--paper:#fff3a8;position:relative;z-index:3;width:min(300px,92vw);padding:26px 16px 16px;background:linear-gradient(160deg,#fff7b8,var(--paper));color:#3a3320;border-radius:2px 2px 18px 2px;box-shadow:0 14px 24px #0006,inset 0 -18px 24px #e6d46a55;transform:rotate(2deg);font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive,system-ui}
+.note .tape{position:absolute;top:-12px;left:50%;width:90px;height:24px;transform:translateX(-50%) rotate(-3deg);background:#c7cdd0cc;box-shadow:0 1px 3px #0003}
+.g-toggle{display:flex;align-items:baseline;gap:8px;width:100%;background:none;border:0;padding:0 0 6px;text-align:left;font:inherit;font-weight:700;font-size:1.15rem;color:inherit;min-height:44px;align-items:center}
+.g-hint{font-weight:400;font-size:.7rem;opacity:.7;margin-left:auto}
+.g-x{display:none;margin-left:auto;font-size:.95rem;opacity:.7}
+.g-wrap{display:grid;grid-template-rows:1fr;transition:grid-template-rows .45s ease}
+.g-body{overflow:hidden;min-height:0}
+.note{transition:width .45s ease,transform .45s ease,padding .45s ease}
+.note:not(.folded) .g-hint{display:none}.note:not(.folded) .g-x{display:block}
+/* folded: small note with a dog-eared corner */
+.note.folded{width:190px;padding-bottom:6px;transform:rotate(-3deg);cursor:pointer;border-radius:2px;clip-path:polygon(0 0,100% 0,100% calc(100% - 26px),calc(100% - 26px) 100%,0 100%)}
+.note.folded:hover{transform:rotate(-1deg) translateY(-3px)}
+.note.folded::after{content:"";position:absolute;right:0;bottom:0;width:26px;height:26px;background:linear-gradient(135deg,#d9c755 50%,transparent 50%);box-shadow:-2px -2px 4px #0003}
+.note.folded .g-wrap{grid-template-rows:0fr}
+.note.folded .g-sub{display:none}
+.g-sub{margin:0 0 10px;font-size:.78rem;opacity:.8}
+.g-warn{margin:0 0 8px;padding:4px 8px;background:#ffd9d2;border:1px dashed #b3402e;border-radius:6px;font-size:.8rem;font-weight:700}
+.note details{border-top:1px dashed #8a7a3a88}
+.note summary{cursor:pointer;padding:7px 2px;font-weight:700;font-size:.92rem;min-height:36px;list-style-position:inside}
+.note ul{margin:0 0 8px;padding:0 0 0 18px;list-style:"– "}
+.note li button{background:none;border:0;padding:3px 2px;text-align:left;font:inherit;font-size:.82rem;color:#3a3320;text-decoration:underline dotted;text-underline-offset:3px;min-height:28px}
+.note li button:hover{color:#183D32;text-decoration-style:solid}
+@media (min-width:1400px){
+  .note{position:absolute;left:calc(50% + 430px + 28px);top:50%;margin-top:-190px}
+  .note.folded{margin-top:-30px}
+}
+@media (max-width:1399px){.scene{padding:2vh 0 4vh}}
+body.docked .note{display:none}
+.note.folded .tape{top:0;opacity:.85}
+.g-toggle span,.g-hint{white-space:nowrap}

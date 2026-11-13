@@ -1,0 +1,29 @@
+.stage{--w:min(860px,94vw);--lh:calc(var(--w)*.625);--bd:calc(var(--w)*.5);position:relative;width:var(--w);height:calc(var(--lh) + var(--w)*.3);perspective:2600px;perspective-origin:50% -80%}
+.laptop{position:absolute;inset:0;transform-style:preserve-3d}
+.lid{position:absolute;left:0;top:0;width:100%;height:var(--lh);transform-origin:50% 100%;transform-style:preserve-3d;transform:translateY(-3px) rotateX(-90deg);transition:transform 1.5s cubic-bezier(.45,0,.2,1)}
+.lid-open .lid{transform:translateY(-3px) rotateX(3deg)}
+.lid-face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:14px 14px 4px 4px}
+.lid-screen{background:#0b0e0d;padding:2.2%;box-shadow:inset 0 0 0 2px #2a2f2d}
+.lid-outer{transform:rotateY(180deg) rotateZ(180deg);background:linear-gradient(135deg,#e6eaec,#C7CDD0 45%,#aeb5b9);display:grid;place-items:center;box-shadow:inset 0 0 0 2px #fff6}
+.lid-logo{font-weight:800;letter-spacing:.3em;font-size:calc(var(--w)*.04);color:#7a8a82;text-shadow:0 1px 0 #fff8;text-transform:uppercase}
+.screen{position:relative;width:100%;height:100%;background:#050807;border-radius:4px;overflow:hidden;transition:background .8s,box-shadow .8s}
+.screen.lit{background:#0f2a22;box-shadow:0 0 40px 6px #a9bda933}
+.base{position:absolute;left:0;top:var(--lh);width:100%;height:var(--bd);transform-origin:50% 0;transform:rotateX(90deg);background:linear-gradient(#d8dde0,#C7CDD0 60%,#b4bbbf);border-radius:4px 4px 22px 22px;box-shadow:inset 0 0 0 2px #fff7}
+.keys{position:absolute;left:6%;right:6%;top:6%;height:56%;border-radius:6px;background:linear-gradient(90deg,#9aa3a7 3px,transparent 3px) 0 0/6.6% 100%,linear-gradient(0deg,#9aa3a7 3px,transparent 3px) 0 0/100% 20%,#242b28}
+.pad{position:absolute;left:34%;width:32%;top:68%;height:24%;border-radius:10px;background:linear-gradient(#cfd5d8,#b9c0c4);box-shadow:inset 0 0 0 2px #fff8,inset 0 -2px 6px #0003}
+.floor-shadow{position:absolute;left:4%;right:4%;bottom:-6px;height:36px;background:radial-gradient(ellipse,#0009,transparent 70%);filter:blur(6px);z-index:-1}
+.hero{z-index:10;position:absolute;left:0;right:0;top:0;height:var(--lh);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;gap:.5rem;padding:0 1rem;transition:opacity .6s,transform .6s}
+.hero h1{margin:0;font-size:clamp(1.4rem,4.2vw,2.4rem);font-weight:700}
+.hero p{margin:0 0 1rem;color:var(--sage)}
+.stage:not([data-state=closed]) .hero{opacity:0;transform:translateY(-20px);pointer-events:none}
+.boot{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:#050807;z-index:5}
+.boot.show{display:flex}
+.boot-logo{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--moss);color:#fff;font-weight:800;font-size:28px}
+.boot-bar{width:40%;height:5px;background:#ffffff22;border-radius:3px;overflow:hidden}
+.boot-bar i{display:block;height:100%;width:0;background:var(--sage)}
+.boot.show .boot-bar i{animation:bootbar 1.4s ease-out forwards}
+@keyframes bootbar{to{width:100%}}
+/* hit-testing fix: only the lid screen (the desktop) receives pointer events */
+.laptop,.base,.lid,.lid-outer,.floor-shadow{pointer-events:none}
+.lid-screen{pointer-events:auto}
+.lid-outer{transform:rotateY(180deg) rotateZ(180deg) translateZ(1px)}

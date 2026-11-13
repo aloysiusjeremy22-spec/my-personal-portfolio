@@ -1,0 +1,13 @@
+:root{--forest:#183D32;--deep:#244D3C;--moss:#557C65;--sage:#A9BDA9;--pale:#DCE7DC;--off:#F5F7F3;--silver:#C7CDD0;--char:#252B28;--focus:#3d8f68;--card:#fff}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow-x:hidden}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--char);background:var(--forest)}
+body.docked{overflow:hidden}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.btn{background:var(--forest);color:#fff;border:2px solid var(--sage);border-radius:999px;padding:.8em 1.8em;font-weight:700;letter-spacing:.12em;min-height:44px;transition:background .2s,transform .2s}
+.btn:hover{background:var(--moss)}.btn:active{transform:scale(.97)}.btn:disabled{opacity:.6;cursor:not-allowed}
+.scene{min-height:100svh;display:grid;place-items:center;padding:2vh 0;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#2f6350 0,#183D32 55%,#0f2a22 100%)}
+.toast{position:absolute;left:50%;bottom:56px;transform:translateX(-50%);background:var(--char);color:#fff;padding:.6em 1em;border-radius:8px;z-index:9999;font-size:13px;max-width:90%;text-align:center}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

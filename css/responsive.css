@@ -1,0 +1,21 @@
+@media (max-width:1000px){.win:not(.max){width:90%!important;height:86%!important;left:5%!important;top:4%!important}}
+@media (max-width:700px){
+.win{left:0!important;top:0!important;width:100%!important;height:100%!important;border-radius:0}
+.win-bar{height:44px;cursor:default}.win-ctl button{width:44px;height:44px}.win-ctl [data-a=max]{display:none}
+.desktop{font-size:15px}.icon{width:92px}.icon .ico{width:52px;height:52px}
+.taskbar{height:52px}.windows{inset:0 0 52px 0}.tb-app{height:42px}.tb-app span:not(.ico){display:none}.tb-close{height:40px;font-size:12px}
+.greet{top:8%;max-width:80%}
+.fx{grid-template-columns:1fr;grid-template-rows:auto auto 1fr}
+.fx-side{flex-direction:row;overflow-x:auto}.fx-side button{white-space:nowrap}
+.fx-bar{flex-wrap:wrap}.fx-search{width:100%;order:5}.crumbs{order:4;flex-basis:100%}
+.fx-bar>button,.cbar>button,.fx-search{min-height:44px;min-width:44px}
+.doc dl{grid-template-columns:1fr}
+}
+
+@media (max-width:1000px){.tb-app span:not(.ico){display:none}}
+@media (max-width:700px){
+.tb-start,.tb-btn{width:42px;height:42px}.cd{display:none}.menu{bottom:58px}.tb-apps{overflow-x:auto;justify-content:flex-start}
+.sp{grid-template-columns:1fr;grid-template-rows:auto 1fr}.sp-side{flex-direction:row;align-items:center;overflow-x:auto}.sp-logo{margin:0}
+.st{grid-template-columns:1fr;grid-template-rows:auto 1fr}.st nav{flex-direction:row;overflow-x:auto}.st nav button{white-space:nowrap}
+.ab-head{flex-direction:column;text-align:center}.lb{padding:16px 52px}
+}
